@@ -14,30 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      vocational_submissions: {
+      participantes: {
         Row: {
-          answers: Json
-          consent_lgpd: boolean
+          consentimento_lgpd: boolean
           created_at: string
           email: string
           id: string
-          result: string
+          pontuacao_a: number
+          pontuacao_b: number
+          pontuacao_c: number
+          pontuacao_d: number
+          resultado: string
         }
         Insert: {
-          answers?: Json
-          consent_lgpd?: boolean
+          consentimento_lgpd?: boolean
           created_at?: string
           email: string
           id?: string
-          result: string
+          pontuacao_a?: number
+          pontuacao_b?: number
+          pontuacao_c?: number
+          pontuacao_d?: number
+          resultado: string
         }
         Update: {
-          answers?: Json
-          consent_lgpd?: boolean
+          consentimento_lgpd?: boolean
           created_at?: string
           email?: string
           id?: string
-          result?: string
+          pontuacao_a?: number
+          pontuacao_b?: number
+          pontuacao_c?: number
+          pontuacao_d?: number
+          resultado?: string
         }
         Relationships: []
       }
