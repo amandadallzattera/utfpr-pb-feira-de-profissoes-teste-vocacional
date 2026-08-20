@@ -5,13 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Progress } from "@/components/ui/progress";
 import { AREAS, QUESTIONS, calcularResultado, type AreaKey } from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
 
 const TITLE = "Teste Vocacional — Feira de Profissões UTFPR";
 const DESCRIPTION =
-  "Descubra em 4 perguntas qual área combina com você na Feira de Profissões da UTFPR.";
+  "Descubra em 20 perguntas qual área combina com você na Feira de Profissões da UTFPR.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -91,8 +90,28 @@ function Index() {
     setError(null);
   }
 
+  const progresso = ((current + 1) / QUESTIONS.length) * 100;
+
   return (
     <main className="min-h-screen bg-background text-foreground">
+      {step === "quiz" && (
+        <div className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
+          <div className="mx-auto w-full max-w-md px-5 py-3">
+            <div className="mb-2 flex items-center justify-between text-[11px] font-semibold uppercase tracking-widest">
+              <span className="text-muted-foreground">Progresso</span>
+              <span className="text-primary">
+                {current + 1}/{QUESTIONS.length}
+              </span>
+            </div>
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
+              <div
+                className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
+                style={{ width: `${progresso}%` }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
       <div className="mx-auto flex min-h-screen w-full max-w-md flex-col px-5 pb-10 pt-8">
         <header className="mb-8">
           <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
@@ -103,7 +122,7 @@ function Index() {
             <span className="block text-primary">Feira de Profissões</span>
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            4 perguntas rápidas para descobrir a área que mais combina com você.
+            20 perguntas rápidas para descobrir a área que mais combina com você.
           </p>
         </header>
 
@@ -150,7 +169,6 @@ function Index() {
 
         {step === "quiz" && QUESTIONS[current] && (
           <section className="rounded-2xl border border-border bg-card p-5">
-            <Progress value={((current + 1) / QUESTIONS.length) * 100} className="h-2" />
             <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-primary">
               Pergunta {current + 1} de {QUESTIONS.length}
             </p>
