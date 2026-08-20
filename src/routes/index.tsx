@@ -195,8 +195,12 @@ function Index() {
             </div>
 
             <p className="mt-5 text-xs text-muted-foreground">
-              Resultado enviado para {email}
+              {saveState === "saving" && "Salvando suas respostas..."}
+              {saveState === "saved" && `Respostas registradas para ${email}`}
+              {saveState === "error" &&
+                "Não foi possível salvar suas respostas. Tente novamente mais tarde."}
             </p>
+
 
             <Button variant="outline" className="mt-6 h-11 w-full" onClick={restart}>
               Refazer teste
