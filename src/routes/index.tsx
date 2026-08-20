@@ -96,6 +96,8 @@ function Index() {
     setCurrent(0);
     setResult(null);
     setError(null);
+    setSaveError(null);
+    setSaveState("idle");
   }
 
   const progresso = ((current + 1) / QUESTIONS.length) * 100;
