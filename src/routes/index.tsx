@@ -73,7 +73,7 @@ function Index() {
     setSaveState("saving");
     const res = await saveSubmission({
       email: email.trim(),
-      consent_lgpd: consent,
+      consentimento_lgpd: consent,
       answers: next,
       result: finalResult,
     });
