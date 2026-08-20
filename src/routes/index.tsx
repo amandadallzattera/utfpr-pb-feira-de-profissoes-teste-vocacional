@@ -91,8 +91,28 @@ function Index() {
     setError(null);
   }
 
+  const progresso = ((current + 1) / QUESTIONS.length) * 100;
+
   return (
     <main className="min-h-screen bg-background text-foreground">
+      {step === "quiz" && (
+        <div className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
+          <div className="mx-auto w-full max-w-md px-5 py-3">
+            <div className="mb-2 flex items-center justify-between text-[11px] font-semibold uppercase tracking-widest">
+              <span className="text-muted-foreground">Progresso</span>
+              <span className="text-primary">
+                {current + 1}/{QUESTIONS.length}
+              </span>
+            </div>
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
+              <div
+                className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
+                style={{ width: `${progresso}%` }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
       <div className="mx-auto flex min-h-screen w-full max-w-md flex-col px-5 pb-10 pt-8">
         <header className="mb-8">
           <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
