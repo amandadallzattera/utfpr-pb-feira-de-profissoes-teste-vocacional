@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { AREAS, QUESTIONS, calcularResultado, type AreaKey } from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
+import { toast } from "sonner";
 
 const TITLE = "Teste Vocacional — Feira de Profissões UTFPR";
 const DESCRIPTION =
@@ -47,6 +48,7 @@ function Index() {
   const [answers, setAnswers] = useState<AreaKey[]>([]);
   const [result, setResult] = useState<AreaKey | null>(null);
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   function handleStart(e: React.FormEvent) {
     e.preventDefault();
@@ -77,6 +79,12 @@ function Index() {
       result: finalResult,
     });
     setSaveState(res.ok ? "saved" : "error");
+    if (res.ok) {
+      toast.success("Respostas registradas com sucesso!");
+    } else {
+      setSaveError(res.error ?? "Erro desconhecido");
+      toast.error("Erro ao salvar no banco", { description: res.error });
+    }
   }
 
 
@@ -88,6 +96,8 @@ function Index() {
     setCurrent(0);
     setResult(null);
     setError(null);
+    setSaveError(null);
+    setSaveState("idle");
   }
 
   const progresso = ((current + 1) / QUESTIONS.length) * 100;
@@ -216,7 +226,7 @@ function Index() {
               {saveState === "saving" && "Salvando suas respostas..."}
               {saveState === "saved" && `Respostas registradas para ${email}`}
               {saveState === "error" &&
-                "Não foi possível salvar suas respostas. Tente novamente mais tarde."}
+                `Não foi possível salvar suas respostas: ${saveError ?? "erro desconhecido"}`}
             </p>
 
 
