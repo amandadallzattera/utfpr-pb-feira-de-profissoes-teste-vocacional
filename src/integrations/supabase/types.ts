@@ -14,7 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      vocational_submissions: {
+        Row: {
+          answers: Json
+          consent_lgpd: boolean
+          created_at: string
+          email: string
+          id: string
+          result: string
+        }
+        Insert: {
+          answers?: Json
+          consent_lgpd?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          result: string
+        }
+        Update: {
+          answers?: Json
+          consent_lgpd?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          result?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
