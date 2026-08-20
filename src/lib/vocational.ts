@@ -74,6 +74,166 @@ export const QUESTIONS: Question[] = [
       { texto: "Focado, criando soluções na tela", area: "tecnologia" },
     ],
   },
+  {
+    id: "q5",
+    pergunta: "Um vídeo aparece na sua timeline. Qual você assiste até o fim?",
+    opcoes: [
+      { texto: "Como uma ponte gigante foi construída", area: "exatas" },
+      { texto: "Entrevista sobre comportamento humano", area: "humanas" },
+      { texto: "Documentário sobre oceanos", area: "biologicas" },
+      { texto: "Tutorial de inteligência artificial", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q6",
+    pergunta: "Qual elogio combina mais com você?",
+    opcoes: [
+      { texto: "Você é muito lógico", area: "exatas" },
+      { texto: "Você sabe lidar com as pessoas", area: "humanas" },
+      { texto: "Você é curioso e observador", area: "biologicas" },
+      { texto: "Você é criativo com tecnologia", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q7",
+    pergunta: "Numa feira de ciências, você seria o responsável por:",
+    opcoes: [
+      { texto: "Construir o protótipo", area: "exatas" },
+      { texto: "Apresentar e explicar ao público", area: "humanas" },
+      { texto: "Fazer os experimentos", area: "biologicas" },
+      { texto: "Programar a parte digital", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q8",
+    pergunta: "O que te incomoda mais?",
+    opcoes: [
+      { texto: "Coisas mal calculadas ou tortas", area: "exatas" },
+      { texto: "Injustiça e falta de diálogo", area: "humanas" },
+      { texto: "Desperdício e poluição", area: "biologicas" },
+      { texto: "Processos manuais e repetitivos", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q9",
+    pergunta: "Qual ferramenta você pegaria primeiro?",
+    opcoes: [
+      { texto: "Uma trena e uma calculadora", area: "exatas" },
+      { texto: "Um caderno e um microfone", area: "humanas" },
+      { texto: "Um microscópio", area: "biologicas" },
+      { texto: "Um notebook", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q10",
+    pergunta: "Trabalho em grupo: qual papel você assume?",
+    opcoes: [
+      { texto: "Quem resolve a parte técnica", area: "exatas" },
+      { texto: "Quem organiza e lidera o time", area: "humanas" },
+      { texto: "Quem pesquisa a fundo o tema", area: "biologicas" },
+      { texto: "Quem monta a solução digital", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q11",
+    pergunta: "Que notícia te chama mais atenção?",
+    opcoes: [
+      { texto: "Nova usina de energia inaugurada", area: "exatas" },
+      { texto: "Mudanças na educação do país", area: "humanas" },
+      { texto: "Descoberta de uma nova espécie", area: "biologicas" },
+      { texto: "Lançamento de um novo app", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q12",
+    pergunta: "Você tem R$ 1.000 para um projeto. Gasta em quê?",
+    opcoes: [
+      { texto: "Materiais e ferramentas", area: "exatas" },
+      { texto: "Um evento para a comunidade", area: "humanas" },
+      { texto: "Uma horta ou reflorestamento", area: "biologicas" },
+      { texto: "Equipamentos e servidores", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q13",
+    pergunta: "Como você resolve um problema difícil?",
+    opcoes: [
+      { texto: "Fazendo contas e testando hipóteses", area: "exatas" },
+      { texto: "Conversando com quem entende", area: "humanas" },
+      { texto: "Observando padrões na natureza", area: "biologicas" },
+      { texto: "Buscando automatizar a solução", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q14",
+    pergunta: "Qual ambiente de trabalho te agrada?",
+    opcoes: [
+      { texto: "Uma fábrica ou canteiro de obras", area: "exatas" },
+      { texto: "Uma escola, escritório ou ONG", area: "humanas" },
+      { texto: "Um laboratório ou reserva natural", area: "biologicas" },
+      { texto: "Uma startup de tecnologia", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q15",
+    pergunta: "Qual dessas atividades parece divertida?",
+    opcoes: [
+      { texto: "Resolver um desafio de física", area: "exatas" },
+      { texto: "Debater um tema polêmico", area: "humanas" },
+      { texto: "Analisar amostras de água", area: "biologicas" },
+      { texto: "Criar um jogo simples", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q16",
+    pergunta: "Você é mais reconhecido por:",
+    opcoes: [
+      { texto: "Precisão e raciocínio rápido", area: "exatas" },
+      { texto: "Empatia e boa comunicação", area: "humanas" },
+      { texto: "Paciência e atenção a detalhes", area: "biologicas" },
+      { texto: "Curiosidade digital e autodidatismo", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q17",
+    pergunta: "Se pudesse mudar algo no mundo, seria:",
+    opcoes: [
+      { texto: "A infraestrutura das cidades", area: "exatas" },
+      { texto: "A educação e as desigualdades", area: "humanas" },
+      { texto: "A saúde do planeta", area: "biologicas" },
+      { texto: "O acesso à tecnologia", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q18",
+    pergunta: "Qual disciplina você escolheria como optativa?",
+    opcoes: [
+      { texto: "Cálculo aplicado", area: "exatas" },
+      { texto: "Gestão de pessoas", area: "biologicas" === "exatas" ? "exatas" : "humanas" },
+      { texto: "Ecologia", area: "biologicas" },
+      { texto: "Programação", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q19",
+    pergunta: "Ao visitar uma empresa, o que você quer ver?",
+    opcoes: [
+      { texto: "As máquinas e a linha de produção", area: "exatas" },
+      { texto: "Como as equipes se organizam", area: "humanas" },
+      { texto: "O tratamento de resíduos", area: "biologicas" },
+      { texto: "Os sistemas e dados usados", area: "tecnologia" },
+    ],
+  },
+  {
+    id: "q20",
+    pergunta: "Daqui a 10 anos, você se vê:",
+    opcoes: [
+      { texto: "Assinando grandes projetos de engenharia", area: "exatas" },
+      { texto: "Liderando pessoas e projetos sociais", area: "humanas" },
+      { texto: "Pesquisando soluções sustentáveis", area: "biologicas" },
+      { texto: "Criando tecnologia usada por milhões", area: "tecnologia" },
+    ],
+  },
 ];
 
 export function calcularResultado(respostas: AreaKey[]): AreaKey {
