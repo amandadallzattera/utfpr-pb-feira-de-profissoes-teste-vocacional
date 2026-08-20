@@ -5,13 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Progress } from "@/components/ui/progress";
 import { AREAS, QUESTIONS, calcularResultado, type AreaKey } from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
 
 const TITLE = "Teste Vocacional — Feira de Profissões UTFPR";
 const DESCRIPTION =
-  "Descubra em 4 perguntas qual área combina com você na Feira de Profissões da UTFPR.";
+  "Descubra em 20 perguntas qual área combina com você na Feira de Profissões da UTFPR.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -123,7 +122,7 @@ function Index() {
             <span className="block text-primary">Feira de Profissões</span>
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            4 perguntas rápidas para descobrir a área que mais combina com você.
+            20 perguntas rápidas para descobrir a área que mais combina com você.
           </p>
         </header>
 
@@ -170,7 +169,6 @@ function Index() {
 
         {step === "quiz" && QUESTIONS[current] && (
           <section className="rounded-2xl border border-border bg-card p-5">
-            <Progress value={((current + 1) / QUESTIONS.length) * 100} className="h-2" />
             <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-primary">
               Pergunta {current + 1} de {QUESTIONS.length}
             </p>
