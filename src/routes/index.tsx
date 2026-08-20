@@ -47,6 +47,7 @@ function Index() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<AreaKey[]>([]);
   const [result, setResult] = useState<AreaKey | null>(null);
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
 
   function handleStart(e: React.FormEvent) {
     e.preventDefault();
@@ -69,13 +70,16 @@ function Index() {
     const finalResult = calcularResultado(next);
     setResult(finalResult);
     setStep("result");
-    await saveSubmission({
+    setSaveState("saving");
+    const res = await saveSubmission({
       email: email.trim(),
       consent_lgpd: consent,
       answers: next,
       result: finalResult,
     });
+    setSaveState(res.ok ? "saved" : "error");
   }
+
 
   function restart() {
     setStep("form");
@@ -191,8 +195,12 @@ function Index() {
             </div>
 
             <p className="mt-5 text-xs text-muted-foreground">
-              Resultado enviado para {email}
+              {saveState === "saving" && "Salvando suas respostas..."}
+              {saveState === "saved" && `Respostas registradas para ${email}`}
+              {saveState === "error" &&
+                "Não foi possível salvar suas respostas. Tente novamente mais tarde."}
             </p>
+
 
             <Button variant="outline" className="mt-6 h-11 w-full" onClick={restart}>
               Refazer teste
