@@ -41,16 +41,18 @@ export async function saveSubmission(
   const { error } = await supabase.from("participantes").insert({
     email: input.email,
     resultado: input.result,
-    pontuacao_a: pontos.a,
-    pontuacao_b: pontos.b,
-    pontuacao_c: pontos.c,
-    pontuacao_d: pontos.d,
-    consentimento_lgpd: input.consentimento_lgpd,
+    pontuacao_a: Number.parseInt(String(pontos.a), 10),
+    pontuacao_b: Number.parseInt(String(pontos.b), 10),
+    pontuacao_c: Number.parseInt(String(pontos.c), 10),
+    pontuacao_d: Number.parseInt(String(pontos.d), 10),
+    consentimento_lgpd: true,
   });
 
+  // Mantido de forma explícita para diagnóstico do retorno exato do banco.
+  console.log(error);
+
   if (error) {
-    console.error("Erro ao salvar resposta:", error.message);
-    return { ok: false, error: error.message };
+    return { ok: false, error: error.details || error.message };
   }
   return { ok: true };
 }

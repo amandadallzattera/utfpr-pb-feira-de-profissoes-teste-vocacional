@@ -49,6 +49,7 @@ function Index() {
   const [result, setResult] = useState<AreaKey | null>(null);
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [saveError, setSaveError] = useState<string | null>(null);
+  const canStart = formSchema.safeParse({ email, consent }).success;
 
   function handleStart(e: React.FormEvent) {
     e.preventDefault();
@@ -151,7 +152,10 @@ function Index() {
                 maxLength={255}
                 placeholder="voce@exemplo.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                 onChange={(e) => {
+                   setEmail(e.target.value);
+                   setError(null);
+                 }}
               />
             </div>
 
@@ -159,7 +163,10 @@ function Index() {
               <Checkbox
                 id="consent"
                 checked={consent}
-                onCheckedChange={(v) => setConsent(v === true)}
+                 onCheckedChange={(v) => {
+                   setConsent(v === true);
+                   setError(null);
+                 }}
                 className="mt-0.5"
               />
               <Label htmlFor="consent" className="text-xs font-normal leading-relaxed">
@@ -171,7 +178,11 @@ function Index() {
 
             {error && <p className="mt-4 text-xs text-destructive">{error}</p>}
 
-            <Button type="submit" className="mt-6 h-12 w-full text-base font-bold">
+             <Button
+               type="submit"
+               disabled={!canStart}
+               className="mt-6 h-12 w-full text-base font-bold"
+             >
               Começar teste
             </Button>
           </form>
@@ -183,10 +194,10 @@ function Index() {
               Pergunta {current + 1} de {QUESTIONS.length}
             </p>
             <h2 className="mt-2 text-xl font-bold leading-snug">
-              {QUESTIONS[current]!.pergunta}
+               {QUESTIONS[current]?.pergunta}
             </h2>
             <div className="mt-5 space-y-3">
-              {QUESTIONS[current]!.opcoes.map((opcao) => (
+               {QUESTIONS[current]?.opcoes.map((opcao) => (
 
                 <button
                   key={opcao.texto}
@@ -222,12 +233,19 @@ function Index() {
               </ul>
             </div>
 
-            <p className="mt-5 text-xs text-muted-foreground">
+             <p className="mt-5 text-xs text-muted-foreground">
               {saveState === "saving" && "Salvando suas respostas..."}
               {saveState === "saved" && `Respostas registradas para ${email}`}
-              {saveState === "error" &&
-                `Não foi possível salvar suas respostas: ${saveError ?? "erro desconhecido"}`}
             </p>
+
+             {saveState === "error" && (
+               <div
+                 role="alert"
+                 className="mt-5 border-2 border-destructive bg-destructive p-5 text-left text-base font-bold text-destructive-foreground"
+               >
+                 {saveError ?? "Erro desconhecido"}
+               </div>
+             )}
 
 
             <Button variant="outline" className="mt-6 h-11 w-full" onClick={restart}>
