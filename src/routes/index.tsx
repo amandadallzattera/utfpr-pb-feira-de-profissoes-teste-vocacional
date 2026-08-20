@@ -144,17 +144,18 @@ function Index() {
           </form>
         )}
 
-        {step === "quiz" && (
+        {step === "quiz" && QUESTIONS[current] && (
           <section className="rounded-2xl border border-border bg-card p-5">
             <Progress value={((current + 1) / QUESTIONS.length) * 100} className="h-2" />
             <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-primary">
               Pergunta {current + 1} de {QUESTIONS.length}
             </p>
             <h2 className="mt-2 text-xl font-bold leading-snug">
-              {QUESTIONS[current].pergunta}
+              {QUESTIONS[current]!.pergunta}
             </h2>
             <div className="mt-5 space-y-3">
-              {QUESTIONS[current].opcoes.map((opcao) => (
+              {QUESTIONS[current]!.opcoes.map((opcao) => (
+
                 <button
                   key={opcao.texto}
                   type="button"
