@@ -209,7 +209,7 @@ export const QUESTIONS: Question[] = [
     pergunta: "Qual disciplina você escolheria como optativa?",
     opcoes: [
       { texto: "Cálculo aplicado", area: "exatas" },
-      { texto: "Gestão de pessoas", area: "biologicas" === "exatas" ? "exatas" : "humanas" },
+      { texto: "Gestão de pessoas", area: "humanas" },
       { texto: "Ecologia", area: "biologicas" },
       { texto: "Programação", area: "tecnologia" },
     ],
