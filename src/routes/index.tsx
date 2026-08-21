@@ -222,11 +222,11 @@ function Index() {
 
             <div className="mt-6 rounded-xl bg-secondary p-4 text-left">
               <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-                Cursos para conhecer na Feira
+                Cursos da UTFPR Recomendados para o seu Perfil
               </p>
               <ul className="mt-3 space-y-2">
                 {AREAS[result].cursos.map((curso) => (
-                  <li key={curso} className="text-sm">
+                  <li key={curso} className="text-sm leading-snug">
                     • {curso}
                   </li>
                 ))}
