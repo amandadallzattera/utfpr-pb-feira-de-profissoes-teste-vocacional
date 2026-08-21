@@ -353,6 +353,12 @@ export const QUESTIONS: Question[] = [
   },
 ];
 
+export function buildResultadoText(areaKey: AreaKey): string {
+  const area = AREAS[areaKey];
+  const cursosTexto = area.cursos.map((curso) => `• ${curso}`).join("\n");
+  return `${area.nome}\n\n${area.descricao}\n\nCursos da UTFPR recomendados para o seu perfil:\n${cursosTexto}`;
+}
+
 export function calcularResultado(respostas: AreaKey[]): AreaKey {
   const contagem = respostas.reduce<Record<string, number>>((acc, area) => {
     acc[area] = (acc[area] ?? 0) + 1;
