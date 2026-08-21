@@ -31,6 +31,7 @@ export type Submission = {
   consentimento_lgpd: boolean;
   answers: AreaKey[];
   result: AreaKey;
+  resultadoText: string;
 };
 
 export async function saveSubmission(
