@@ -235,8 +235,17 @@ function Index() {
 
              <p className="mt-5 text-xs text-muted-foreground">
               {saveState === "saving" && "Salvando suas respostas..."}
-              {saveState === "saved" && `Respostas registradas para ${email}`}
             </p>
+
+             {saveState === "saved" && (
+               <div
+                 role="status"
+                 className="mt-5 rounded-xl border-2 border-primary bg-primary p-5 text-left text-base font-bold text-primary-foreground"
+               >
+                 Respostas salvas com sucesso na tabela participantes para {email}.
+               </div>
+             )}
+
 
              {saveState === "error" && (
                <div

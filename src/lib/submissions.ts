@@ -1,4 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
+import { supabaseExternal } from "@/lib/supabase-external";
 import type { AreaKey } from "./vocational";
 
 /**
@@ -38,13 +38,13 @@ export async function saveSubmission(
 ): Promise<{ ok: boolean; error?: string }> {
   const pontos = calcularPontuacoes(input.answers);
 
-  const { error } = await supabase.from("participantes").insert({
+  const { error } = await supabaseExternal.from("participantes").insert({
     email: input.email,
     resultado: input.result,
-    pontuacao_a: Number.parseInt(String(pontos.a), 10),
-    pontuacao_b: Number.parseInt(String(pontos.b), 10),
-    pontuacao_c: Number.parseInt(String(pontos.c), 10),
-    pontuacao_d: Number.parseInt(String(pontos.d), 10),
+    pontuacao_a: Number(pontos.a),
+    pontuacao_b: Number(pontos.b),
+    pontuacao_c: Number(pontos.c),
+    pontuacao_d: Number(pontos.d),
     consentimento_lgpd: true,
   });
 
