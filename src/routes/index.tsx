@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { AREAS, QUESTIONS, calcularResultado, type AreaKey } from "@/lib/vocational";
+import {
+  AREAS,
+  QUESTIONS,
+  calcularResultado,
+  buildResultadoText,
+  type AreaKey,
+} from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
 
@@ -78,7 +84,9 @@ function Index() {
       consentimento_lgpd: consent,
       answers: next,
       result: finalResult,
+      resultadoText: buildResultadoText(finalResult),
     });
+
     setSaveState(res.ok ? "saved" : "error");
     if (res.ok) {
       toast.success("Respostas registradas com sucesso!");
@@ -264,7 +272,10 @@ function Index() {
         )}
 
         <footer className="mt-auto pt-10 text-center text-[11px] text-muted-foreground">
-          Feira de Profissões UTFPR · Dados tratados conforme a LGPD
+          <p>Feira de Profissões UTFPR · Dados tratados conforme a LGPD</p>
+          <p className="mt-1">
+            Teste vocacional desenvolvido pela pedagoga Maria da Luz Calegari
+          </p>
         </footer>
       </div>
     </main>
