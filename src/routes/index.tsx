@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { AREAS, QUESTIONS, calcularResultado, type AreaKey } from "@/lib/vocational";
+import {
+  AREAS,
+  QUESTIONS,
+  calcularResultado,
+  buildResultadoText,
+  type AreaKey,
+} from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
 
