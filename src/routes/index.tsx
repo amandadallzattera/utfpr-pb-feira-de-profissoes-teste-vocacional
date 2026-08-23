@@ -272,7 +272,10 @@ function Index() {
         )}
 
         <footer className="mt-auto pt-10 text-center text-[11px] text-muted-foreground">
-          Feira de Profissões UTFPR · Dados tratados conforme a LGPD
+          <p>Feira de Profissões UTFPR · Dados tratados conforme a LGPD</p>
+          <p className="mt-1">
+            Teste vocacional desenvolvido pela pedagoga Maria da Luz Calegari
+          </p>
         </footer>
       </div>
     </main>
