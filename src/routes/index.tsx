@@ -9,7 +9,6 @@ import {
   AREAS,
   QUESTIONS,
   calcularResultado,
-  buildResultadoText,
   type AreaKey,
 } from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
@@ -84,7 +83,6 @@ function Index() {
       consentimento_lgpd: consent,
       answers: next,
       result: finalResult,
-      resultadoText: buildResultadoText(finalResult),
     });
 
     setSaveState(res.ok ? "saved" : "error");
