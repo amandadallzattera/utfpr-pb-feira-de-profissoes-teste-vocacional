@@ -41,13 +41,14 @@ export async function saveSubmission(
 
   const { error } = await supabaseExternal.from("participantes").insert({
     email: input.email,
-    resultado: input.result,
+    resultado: input.resultadoText,
     pontuacao_a: Number(pontos.a),
     pontuacao_b: Number(pontos.b),
     pontuacao_c: Number(pontos.c),
     pontuacao_d: Number(pontos.d),
     consentimento_lgpd: true,
   });
+
 
   // Mantido de forma explícita para diagnóstico do retorno exato do banco.
   console.log(error);
