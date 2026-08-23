@@ -84,7 +84,9 @@ function Index() {
       consentimento_lgpd: consent,
       answers: next,
       result: finalResult,
+      resultadoText: buildResultadoText(finalResult),
     });
+
     setSaveState(res.ok ? "saved" : "error");
     if (res.ok) {
       toast.success("Respostas registradas com sucesso!");
