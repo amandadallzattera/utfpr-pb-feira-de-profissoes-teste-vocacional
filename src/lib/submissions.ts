@@ -1,5 +1,5 @@
 import { supabaseExternal } from "@/lib/supabase-external";
-import type { AreaKey } from "./vocational";
+import { buildResultadoText, type AreaKey } from "./vocational";
 
 /**
  * Persistência das respostas no banco (tabela `participantes`).
@@ -31,17 +31,19 @@ export type Submission = {
   consentimento_lgpd: boolean;
   answers: AreaKey[];
   result: AreaKey;
-  resultadoText: string;
 };
 
 export async function saveSubmission(
   input: Submission,
 ): Promise<{ ok: boolean; error?: string }> {
   const pontos = calcularPontuacoes(input.answers);
+  // O resultado é montado integralmente no momento da inserção, sem schema,
+  // limite de caracteres, corte ou transformação intermediária.
+  const resultadoCompleto = buildResultadoText(input.result);
 
   const { error } = await supabaseExternal.from("participantes").insert({
     email: input.email,
-    resultado: input.resultadoText,
+    resultado: resultadoCompleto,
     pontuacao_a: Number(pontos.a),
     pontuacao_b: Number(pontos.b),
     pontuacao_c: Number(pontos.c),
