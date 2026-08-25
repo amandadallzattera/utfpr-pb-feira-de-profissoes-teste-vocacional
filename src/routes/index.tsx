@@ -106,6 +106,12 @@ function Index() {
   }
 
 
+  function handleBack() {
+    if (current === 0) return;
+    setAnswers(answers.slice(0, current - 1));
+    setCurrent(current - 1);
+  }
+
   function restart() {
     setStep("form");
     setEmail("");
@@ -226,6 +232,17 @@ function Index() {
                 </button>
               ))}
             </div>
+
+            {current > 0 && (
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleBack}
+                className="mt-5 h-11 w-full font-semibold"
+              >
+                ← Anterior
+              </Button>
+            )}
           </section>
         )}
 
