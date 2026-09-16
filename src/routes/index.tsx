@@ -13,6 +13,7 @@ import {
 } from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
+import feiraLogoAsset from "@/assets/feira-de-profissoes-logo.png.asset.json";
 
 const TITLE = "Teste Vocacional — Feira de Profissões UTFPR";
 const DESCRIPTION =
@@ -127,7 +128,19 @@ function Index() {
   const progresso = ((current + 1) / QUESTIONS.length) * 100;
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="relative isolate min-h-screen overflow-hidden bg-background text-foreground">
+      <div className="honeycomb-frame" aria-hidden="true">
+        <div className="honeycomb-cluster honeycomb-cluster-left">
+          {Array.from({ length: 13 }, (_, index) => (
+            <span key={`left-${index}`} />
+          ))}
+        </div>
+        <div className="honeycomb-cluster honeycomb-cluster-right">
+          {Array.from({ length: 13 }, (_, index) => (
+            <span key={`right-${index}`} />
+          ))}
+        </div>
+      </div>
       {step === "quiz" && (
         <div className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
           <div className="mx-auto w-full max-w-md px-5 py-3">
@@ -146,8 +159,13 @@ function Index() {
           </div>
         </div>
       )}
-      <div className="mx-auto flex min-h-screen w-full max-w-md flex-col px-5 pb-10 pt-8">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-md flex-col px-5 pb-10 pt-7">
         <header className="mb-8">
+          <img
+            src={feiraLogoAsset.url}
+            alt="Feira de Profissões"
+            className="mb-6 h-auto w-full max-w-[19rem] object-contain object-left"
+          />
           <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
             UTFPR
           </span>
@@ -222,14 +240,15 @@ function Index() {
             <div className="mt-5 space-y-3">
                {QUESTIONS[current]?.opcoes.map((opcao) => (
 
-                <button
+                <Button
                   key={opcao.texto}
                   type="button"
+                   variant="outline"
                   onClick={() => handleAnswer(opcao.area)}
-                  className="w-full rounded-xl border border-border bg-secondary px-4 py-4 text-left text-sm font-medium transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                   className="h-auto min-h-14 w-full justify-start whitespace-normal rounded-xl border-border bg-secondary px-4 py-4 text-left text-sm font-medium hover:border-primary hover:bg-primary hover:text-primary-foreground"
                 >
                   {opcao.texto}
-                </button>
+                 </Button>
               ))}
             </div>
 
