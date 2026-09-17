@@ -100,9 +100,9 @@
   --sidebar-ring: oklch(0.86 0.18 95);
   --gradient-brand: linear-gradient(135deg, oklch(0.9 0.19 100), oklch(0.78 0.17 78));
   --shadow-brand: 0 18px 40px -18px oklch(0.86 0.18 95 / 0.55);
-  --honey-purple: oklch(0.5 0.2 304);
-  --honey-magenta: oklch(0.6 0.23 12);
-  --honey-yellow: oklch(0.82 0.17 85);
+  --honey-purple: oklch(0.49738 0.18154 301.052);
+  --honey-magenta: oklch(0.58664 0.21728 15.301);
+  --honey-yellow: oklch(0.82983 0.17078 81.883);
 }
 
 .honeycomb-frame {
@@ -113,94 +113,63 @@
   pointer-events: none;
 }
 
-.honeycomb-frame::before,
-.honeycomb-frame::after {
+.honeycomb-corner {
   position: absolute;
-  width: 18rem;
-  height: 18rem;
-  content: "";
-  opacity: 0.1;
-  filter: blur(48px);
+  width: 12rem;
+  height: auto;
+  overflow: visible;
+  opacity: 0.24;
 }
 
-.honeycomb-frame::before {
-  top: -8rem;
-  left: -8rem;
-  background: var(--honey-purple);
+.honeycomb-corner path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
 }
 
-.honeycomb-frame::after {
-  right: -8rem;
-  bottom: -8rem;
-  background: var(--honey-magenta);
+.honeycomb-purple {
+  color: var(--honey-purple);
 }
 
-.honeycomb-cluster {
-  position: absolute;
-  display: grid;
-  grid-template-columns: repeat(3, 2.4rem);
-  gap: 0.2rem;
-  width: 8rem;
-  opacity: 0.34;
-  transform: rotate(-8deg);
+.honeycomb-magenta {
+  color: var(--honey-magenta);
 }
 
-.honeycomb-cluster-left {
-  top: 5rem;
-  left: -3.4rem;
+.honeycomb-yellow {
+  color: var(--honey-yellow);
 }
 
-.honeycomb-cluster-right {
-  right: -3.8rem;
-  bottom: 4rem;
-  transform: rotate(10deg);
+.honeycomb-corner-top {
+  top: -1rem;
+  left: -4.8rem;
 }
 
-.honeycomb-cluster span {
-  aspect-ratio: 1.14;
-  background: var(--honey-yellow);
-  clip-path: polygon(25% 2%, 75% 2%, 100% 50%, 75% 98%, 25% 98%, 0 50%);
-  mask: linear-gradient(var(--foreground) 0 0) content-box, linear-gradient(var(--foreground) 0 0);
-  mask-composite: exclude;
-  padding: 0.12rem;
-}
-
-.honeycomb-cluster span:nth-child(3n + 2) {
-  background: var(--honey-magenta);
-}
-
-.honeycomb-cluster span:nth-child(3n + 3) {
-  background: var(--honey-purple);
-}
-
-.honeycomb-cluster span:nth-child(even) {
-  transform: translateY(1.3rem);
+.honeycomb-corner-bottom {
+  right: -5.2rem;
+  bottom: -1.5rem;
+  transform: rotate(180deg);
 }
 
 @media (min-width: 48rem) {
-  .honeycomb-cluster {
-    grid-template-columns: repeat(4, 3.4rem);
-    width: 15rem;
-    opacity: 0.4;
+  .honeycomb-corner {
+    width: 16rem;
+    opacity: 0.27;
   }
 
-  .honeycomb-cluster-left {
-    top: 7rem;
-    left: -3rem;
+  .honeycomb-corner-top {
+    top: 1rem;
+    left: -4rem;
   }
 
-  .honeycomb-cluster-right {
+  .honeycomb-corner-bottom {
     right: -4rem;
-    bottom: 6rem;
-  }
-
-  .honeycomb-cluster span:nth-child(even) {
-    transform: translateY(1.8rem);
+    bottom: 1rem;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .honeycomb-cluster {
+  .honeycomb-corner {
     animation: honeycomb-drift 14s ease-in-out infinite alternate;
   }
 }
