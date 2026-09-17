@@ -13,7 +13,7 @@ import {
 } from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
-import feiraLogoAsset from "@/assets/feira-de-profissoes-logo-branca.png.asset.json";
+import feiraLogoAsset from "@/assets/feira-de-profissoes-logo-atualizada.png.asset.json";
 
 const TITLE = "Teste Vocacional — Feira de Profissões UTFPR";
 const DESCRIPTION =
@@ -55,6 +55,24 @@ const formSchema = z.object({
 });
 
 type Step = "form" | "quiz" | "result";
+
+const HONEYCOMB_CELLS = Array.from({ length: 30 }, (_, index) => ({
+  x: (index % 5) * 52 + (Math.floor(index / 5) % 2 === 0 ? 0 : 26),
+  y: Math.floor(index / 5) * 45,
+}));
+
+function HoneycombCorner({ className }: { className: string }) {
+  return (
+    <svg className={`honeycomb-corner ${className}`} viewBox="0 0 270 270">
+      {HONEYCOMB_CELLS.map(({ x, y }) => (
+        <path
+          key={`${x}-${y}`}
+          d={`M${x + 26} ${y + 2} ${x + 50} ${y + 15}v27L${x + 26} ${y + 55} ${x + 2} ${y + 42}V${y + 15}Z`}
+        />
+      ))}
+    </svg>
+  );
+}
 
 function Index() {
   const [step, setStep] = useState<Step>("form");
@@ -130,40 +148,10 @@ function Index() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-background text-foreground">
       <div className="honeycomb-frame" aria-hidden="true">
-        <svg className="honeycomb-corner honeycomb-corner-top" viewBox="0 0 260 250">
-          <g className="honeycomb-purple">
-            <path d="M0 18 26 3l26 15v30L26 63 0 48Z" />
-            <path d="m54 50 26-15 26 15v30L80 95 54 80Z" />
-            <path d="m108 18 26-15 26 15v30l-26 15-26-15Z" />
-          </g>
-          <g className="honeycomb-magenta">
-            <path d="m0 82 26-15 26 15v30l-26 15-26-15Z" />
-            <path d="m54 114 26-15 26 15v30l-26 15-26-15Z" />
-            <path d="m108 82 26-15 26 15v30l-26 15-26-15Z" />
-          </g>
-          <g className="honeycomb-yellow">
-            <path d="m0 146 26-15 26 15v30l-26 15-26-15Z" />
-            <path d="m54 178 26-15 26 15v30l-26 15-26-15Z" />
-            <path d="m108 146 26-15 26 15v30l-26 15-26-15Z" />
-          </g>
-        </svg>
-        <svg className="honeycomb-corner honeycomb-corner-bottom" viewBox="0 0 260 250">
-          <g className="honeycomb-yellow">
-            <path d="M0 18 26 3l26 15v30L26 63 0 48Z" />
-            <path d="m54 50 26-15 26 15v30L80 95 54 80Z" />
-            <path d="m108 18 26-15 26 15v30l-26 15-26-15Z" />
-          </g>
-          <g className="honeycomb-magenta">
-            <path d="m0 82 26-15 26 15v30l-26 15-26-15Z" />
-            <path d="m54 114 26-15 26 15v30l-26 15-26-15Z" />
-            <path d="m108 82 26-15 26 15v30l-26 15-26-15Z" />
-          </g>
-          <g className="honeycomb-purple">
-            <path d="m0 146 26-15 26 15v30l-26 15-26-15Z" />
-            <path d="m54 178 26-15 26 15v30l-26 15-26-15Z" />
-            <path d="m108 146 26-15 26 15v30l-26 15-26-15Z" />
-          </g>
-        </svg>
+        <HoneycombCorner className="honeycomb-corner-top-left honeycomb-purple" />
+        <HoneycombCorner className="honeycomb-corner-top-right honeycomb-magenta" />
+        <HoneycombCorner className="honeycomb-corner-bottom-left honeycomb-yellow" />
+        <HoneycombCorner className="honeycomb-corner-bottom-right honeycomb-purple" />
       </div>
       {step === "quiz" && (
         <div className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
