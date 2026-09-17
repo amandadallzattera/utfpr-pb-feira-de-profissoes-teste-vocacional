@@ -13,7 +13,7 @@ import {
 } from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
-import feiraLogoAsset from "@/assets/feira-de-profissoes-logo.png.asset.json";
+import feiraLogoAsset from "@/assets/feira-de-profissoes-logo-branca.png.asset.json";
 
 const TITLE = "Teste Vocacional — Feira de Profissões UTFPR";
 const DESCRIPTION =
@@ -130,16 +130,40 @@ function Index() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-background text-foreground">
       <div className="honeycomb-frame" aria-hidden="true">
-        <div className="honeycomb-cluster honeycomb-cluster-left">
-          {Array.from({ length: 13 }, (_, index) => (
-            <span key={`left-${index}`} />
-          ))}
-        </div>
-        <div className="honeycomb-cluster honeycomb-cluster-right">
-          {Array.from({ length: 13 }, (_, index) => (
-            <span key={`right-${index}`} />
-          ))}
-        </div>
+        <svg className="honeycomb-corner honeycomb-corner-top" viewBox="0 0 260 250">
+          <g className="honeycomb-purple">
+            <path d="M0 18 26 3l26 15v30L26 63 0 48Z" />
+            <path d="m54 50 26-15 26 15v30L80 95 54 80Z" />
+            <path d="m108 18 26-15 26 15v30l-26 15-26-15Z" />
+          </g>
+          <g className="honeycomb-magenta">
+            <path d="m0 82 26-15 26 15v30l-26 15-26-15Z" />
+            <path d="m54 114 26-15 26 15v30l-26 15-26-15Z" />
+            <path d="m108 82 26-15 26 15v30l-26 15-26-15Z" />
+          </g>
+          <g className="honeycomb-yellow">
+            <path d="m0 146 26-15 26 15v30l-26 15-26-15Z" />
+            <path d="m54 178 26-15 26 15v30l-26 15-26-15Z" />
+            <path d="m108 146 26-15 26 15v30l-26 15-26-15Z" />
+          </g>
+        </svg>
+        <svg className="honeycomb-corner honeycomb-corner-bottom" viewBox="0 0 260 250">
+          <g className="honeycomb-yellow">
+            <path d="M0 18 26 3l26 15v30L26 63 0 48Z" />
+            <path d="m54 50 26-15 26 15v30L80 95 54 80Z" />
+            <path d="m108 18 26-15 26 15v30l-26 15-26-15Z" />
+          </g>
+          <g className="honeycomb-magenta">
+            <path d="m0 82 26-15 26 15v30l-26 15-26-15Z" />
+            <path d="m54 114 26-15 26 15v30l-26 15-26-15Z" />
+            <path d="m108 82 26-15 26 15v30l-26 15-26-15Z" />
+          </g>
+          <g className="honeycomb-purple">
+            <path d="m0 146 26-15 26 15v30l-26 15-26-15Z" />
+            <path d="m54 178 26-15 26 15v30l-26 15-26-15Z" />
+            <path d="m108 146 26-15 26 15v30l-26 15-26-15Z" />
+          </g>
+        </svg>
       </div>
       {step === "quiz" && (
         <div className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
@@ -164,7 +188,7 @@ function Index() {
           <img
             src={feiraLogoAsset.url}
             alt="Feira de Profissões"
-            className="mb-6 h-auto w-full max-w-[19rem] object-contain object-left"
+            className="mb-6 h-auto w-full max-w-[9rem] object-contain object-left"
           />
           <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
             UTFPR
