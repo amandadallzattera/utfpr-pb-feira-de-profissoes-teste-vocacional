@@ -13,7 +13,7 @@ import {
 } from "@/lib/vocational";
 import { saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
-import feiraLogoAsset from "@/assets/feira-de-profissoes-logo-atualizada.png.asset.json";
+import feiraLogoAsset from "@/assets/feira-de-profissoes-logo-sem-brilho.png.asset.json";
 
 const TITLE = "Teste Vocacional — Feira de Profissões UTFPR";
 const DESCRIPTION =
@@ -56,15 +56,31 @@ const formSchema = z.object({
 
 type Step = "form" | "quiz" | "result";
 
-const HONEYCOMB_CELLS = Array.from({ length: 30 }, (_, index) => ({
-  x: (index % 5) * 52 + (Math.floor(index / 5) % 2 === 0 ? 0 : 26),
-  y: Math.floor(index / 5) * 45,
-}));
+function createHoneycombCells(count: number, columns: number) {
+  return Array.from({ length: count }, (_, index) => ({
+  x: (index % columns) * 52 + (Math.floor(index / columns) % 2 === 0 ? 0 : 26),
+  y: Math.floor(index / columns) * 45,
+  }));
+}
 
-function HoneycombCorner({ className }: { className: string }) {
+function HoneycombCorner({
+  className,
+  count,
+  columns,
+}: {
+  className: string;
+  count: number;
+  columns: number;
+}) {
+  const cells = createHoneycombCells(count, columns);
+  const rows = Math.ceil(count / columns);
+
   return (
-    <svg className={`honeycomb-corner ${className}`} viewBox="0 0 270 270">
-      {HONEYCOMB_CELLS.map(({ x, y }) => (
+    <svg
+      className={`honeycomb-corner ${className}`}
+      viewBox={`0 0 ${columns * 52 + 26} ${rows * 45 + 12}`}
+    >
+      {cells.map(({ x, y }) => (
         <path
           key={`${x}-${y}`}
           d={`M${x + 26} ${y + 2} ${x + 50} ${y + 15}v27L${x + 26} ${y + 55} ${x + 2} ${y + 42}V${y + 15}Z`}
@@ -148,10 +164,10 @@ function Index() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-background text-foreground">
       <div className="honeycomb-frame" aria-hidden="true">
-        <HoneycombCorner className="honeycomb-corner-top-left honeycomb-purple" />
-        <HoneycombCorner className="honeycomb-corner-top-right honeycomb-magenta" />
-        <HoneycombCorner className="honeycomb-corner-bottom-left honeycomb-yellow" />
-        <HoneycombCorner className="honeycomb-corner-bottom-right honeycomb-purple" />
+        <HoneycombCorner className="honeycomb-corner-top-left honeycomb-purple" count={22} columns={4} />
+        <HoneycombCorner className="honeycomb-corner-top-right honeycomb-magenta" count={35} columns={5} />
+        <HoneycombCorner className="honeycomb-corner-bottom-left honeycomb-yellow" count={17} columns={3} />
+        <HoneycombCorner className="honeycomb-corner-bottom-right honeycomb-purple" count={27} columns={6} />
       </div>
       {step === "quiz" && (
         <div className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
@@ -173,11 +189,13 @@ function Index() {
       )}
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-md flex-col px-5 pb-10 pt-7">
         <header className="mb-8">
-          <img
-            src={feiraLogoAsset.url}
-            alt="Feira de Profissões"
-            className="mb-6 h-auto w-full max-w-[9rem] object-contain object-left"
-          />
+          <div className="mb-6 flex justify-end">
+            <img
+              src={feiraLogoAsset.url}
+              alt="Feira de Profissões"
+              className="h-auto w-full max-w-[9rem] object-contain object-right"
+            />
+          </div>
           <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
             UTFPR
           </span>

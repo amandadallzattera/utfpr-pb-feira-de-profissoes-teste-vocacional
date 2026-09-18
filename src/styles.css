@@ -141,52 +141,59 @@
 }
 
 .honeycomb-corner-top-left {
-  top: -3.5rem;
-  left: -5.5rem;
+  top: -2.5rem;
+  left: -4.5rem;
+  width: 13rem;
 }
 
 .honeycomb-corner-top-right {
-  top: -3.5rem;
-  right: -5.5rem;
+  top: -5rem;
+  right: -6.5rem;
+  width: 18rem;
   transform: rotate(90deg);
 }
 
 .honeycomb-corner-bottom-left {
-  bottom: -3.5rem;
-  left: -5.5rem;
+  bottom: -2rem;
+  left: -3rem;
+  width: 11rem;
   transform: rotate(-90deg);
 }
 
 .honeycomb-corner-bottom-right {
-  right: -5.5rem;
-  bottom: -3.5rem;
+  right: -4.5rem;
+  bottom: -4rem;
+  width: 16rem;
   transform: rotate(180deg);
 }
 
 @media (min-width: 48rem) {
   .honeycomb-corner {
-    width: 21rem;
     opacity: 0.25;
   }
 
   .honeycomb-corner-top-left {
-    top: -3rem;
-    left: -6rem;
+    top: -2rem;
+    left: -5rem;
+    width: 18rem;
   }
 
   .honeycomb-corner-top-right {
-    top: -3rem;
-    right: -6rem;
+    top: -5rem;
+    right: -7rem;
+    width: 25rem;
   }
 
   .honeycomb-corner-bottom-left {
-    bottom: -3rem;
-    left: -6rem;
+    bottom: -2rem;
+    left: -4rem;
+    width: 15rem;
   }
 
   .honeycomb-corner-bottom-right {
-    right: -6rem;
-    bottom: -3rem;
+    right: -5rem;
+    bottom: -4rem;
+    width: 22rem;
   }
 }
 
