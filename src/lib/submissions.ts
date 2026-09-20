@@ -48,7 +48,7 @@ export async function saveSubmission(
     pontuacao_b: Number(pontos.b),
     pontuacao_c: Number(pontos.c),
     pontuacao_d: Number(pontos.d),
-    consentimento_lgpd: true,
+    consentimento_lgpd: input.consentimento_lgpd,
   });
 
 
