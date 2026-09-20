@@ -164,10 +164,10 @@ function Index() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-background text-foreground">
       <div className="honeycomb-frame" aria-hidden="true">
-        <HoneycombCorner className="honeycomb-corner-top-left honeycomb-purple" count={24} columns={4} />
-        <HoneycombCorner className="honeycomb-corner-top-right honeycomb-magenta" count={24} columns={4} />
-        <HoneycombCorner className="honeycomb-corner-bottom-left honeycomb-yellow" count={24} columns={4} />
-        <HoneycombCorner className="honeycomb-corner-bottom-right honeycomb-purple" count={24} columns={4} />
+        <HoneycombCorner className="honeycomb-corner-top-left honeycomb-purple" count={18} columns={4} />
+        <HoneycombCorner className="honeycomb-corner-top-right honeycomb-magenta" count={30} columns={4} />
+        <HoneycombCorner className="honeycomb-corner-bottom-left honeycomb-yellow" count={22} columns={4} />
+        <HoneycombCorner className="honeycomb-corner-bottom-right honeycomb-purple" count={26} columns={4} />
       </div>
       {step === "quiz" && (
         <div className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">
