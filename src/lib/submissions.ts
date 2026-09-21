@@ -1,10 +1,10 @@
-import { supabaseExternal } from "@/lib/supabase-external";
+import { submitParticipante } from "@/lib/submissions.functions";
 import { buildResultadoText, type AreaKey } from "./vocational";
 
 /**
  * Persistência das respostas no banco (tabela `participantes`).
- * Envio público: qualquer visitante pode inserir, desde que o consentimento
- * LGPD esteja marcado. A leitura dos dados fica restrita ao backend.
+ * O INSERT é feito por uma função de servidor: as credenciais do banco
+ * não ficam mais expostas no navegador.
  */
 
 /** Mapeia cada área para a coluna de pontuação correspondente. */
@@ -37,26 +37,25 @@ export async function saveSubmission(
   input: Submission,
 ): Promise<{ ok: boolean; error?: string }> {
   const pontos = calcularPontuacoes(input.answers);
-  // O resultado é montado integralmente no momento da inserção, sem schema,
+  // O resultado é montado integralmente no envio, sem schema,
   // limite de caracteres, corte ou transformação intermediária.
   const resultadoCompleto = buildResultadoText(input.result);
 
-  const { error } = await supabaseExternal.from("participantes").insert({
-    email: input.email,
-    resultado: resultadoCompleto,
-    pontuacao_a: Number(pontos.a),
-    pontuacao_b: Number(pontos.b),
-    pontuacao_c: Number(pontos.c),
-    pontuacao_d: Number(pontos.d),
-    consentimento_lgpd: input.consentimento_lgpd,
-  });
-
-
-  // Mantido de forma explícita para diagnóstico do retorno exato do banco.
-  console.log(error);
-
-  if (error) {
-    return { ok: false, error: error.details || error.message };
+  try {
+    return await submitParticipante({
+      data: {
+        email: input.email,
+        resultado: resultadoCompleto,
+        pontuacao_a: Number(pontos.a),
+        pontuacao_b: Number(pontos.b),
+        pontuacao_c: Number(pontos.c),
+        pontuacao_d: Number(pontos.d),
+        consentimento_lgpd: input.consentimento_lgpd,
+      },
+    });
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    console.log(message);
+    return { ok: false, error: message };
   }
-  return { ok: true };
 }
