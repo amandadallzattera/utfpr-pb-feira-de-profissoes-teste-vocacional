@@ -26,7 +26,12 @@ export function calcularPontuacoes(respostas: AreaKey[]): Pontuacoes {
   return pontos;
 }
 
-/** Mensagem genérica exibida ao usuário — nunca expõe detalhes técnicos. */
+export type Submission = {
+  email: string;
+  consentimento_lgpd: boolean;
+  answers: AreaKey[];
+  result: AreaKey;
+};
 export const ERRO_ENVIO_GENERICO =
   "Não foi possível enviar suas respostas. Verifique sua conexão e tente novamente.";
 
