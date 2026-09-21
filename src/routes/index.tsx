@@ -325,7 +325,7 @@ function Index() {
                  role="status"
                  className="mt-5 rounded-xl border-2 border-primary bg-primary p-5 text-left text-base font-bold text-primary-foreground"
                >
-                 Respostas salvas com sucesso na tabela participantes para {email}.
+                 Respostas registradas com sucesso! Em breve você receberá o resultado no seu e-mail.
                </div>
              )}
 
@@ -335,7 +335,7 @@ function Index() {
                  role="alert"
                  className="mt-5 border-2 border-destructive bg-destructive p-5 text-left text-base font-bold text-destructive-foreground"
                >
-                 {saveError ?? "Erro desconhecido"}
+                 {saveError ?? ERRO_ENVIO_GENERICO}
                </div>
              )}
 
