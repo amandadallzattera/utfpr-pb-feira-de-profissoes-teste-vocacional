@@ -31,13 +31,14 @@ export const submitParticipante = createServerFn({ method: "POST" })
         consentimento_lgpd: data.consentimento_lgpd,
       });
 
-      console.log(error);
-
+      // Detalhes do erro ficam apenas no servidor, sem dados pessoais.
       if (error) {
-        return { ok: false, error: error.details || error.message };
+        console.error("Falha ao registrar submissão:", error.code ?? "desconhecido");
+        return { ok: false };
       }
       return { ok: true };
     } catch (e) {
-      return { ok: false, error: e instanceof Error ? e.message : String(e) };
+      console.error("Falha ao registrar submissão:", e instanceof Error ? e.name : "desconhecido");
+      return { ok: false };
     }
   });
