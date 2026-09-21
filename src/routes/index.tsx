@@ -135,8 +135,8 @@ function Index() {
     if (res.ok) {
       toast.success("Respostas registradas com sucesso!");
     } else {
-      setSaveError(res.error ?? "Erro desconhecido");
-      toast.error("Erro ao salvar no banco", { description: res.error });
+      setSaveError(res.error ?? ERRO_ENVIO_GENERICO);
+      toast.error(ERRO_ENVIO_GENERICO);
     }
   }
 
