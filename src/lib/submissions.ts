@@ -32,6 +32,8 @@ export type Submission = {
   answers: AreaKey[];
   result: AreaKey;
 };
+export const ERRO_ENVIO_GENERICO =
+  "Não foi possível enviar suas respostas. Verifique sua conexão e tente novamente.";
 
 export async function saveSubmission(
   input: Submission,
@@ -53,9 +55,7 @@ export async function saveSubmission(
         consentimento_lgpd: input.consentimento_lgpd,
       },
     });
-  } catch (e) {
-    const message = e instanceof Error ? e.message : String(e);
-    console.log(message);
-    return { ok: false, error: message };
+  } catch {
+    return { ok: false, error: ERRO_ENVIO_GENERICO };
   }
 }

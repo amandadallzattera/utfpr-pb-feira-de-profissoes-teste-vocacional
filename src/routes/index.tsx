@@ -11,7 +11,7 @@ import {
   calcularResultado,
   type AreaKey,
 } from "@/lib/vocational";
-import { saveSubmission } from "@/lib/submissions";
+import { ERRO_ENVIO_GENERICO, saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
 import feiraLogoAsset from "@/assets/feira-de-profissoes-logo-sem-brilho.png.asset.json";
 
@@ -135,8 +135,8 @@ function Index() {
     if (res.ok) {
       toast.success("Respostas registradas com sucesso!");
     } else {
-      setSaveError(res.error ?? "Erro desconhecido");
-      toast.error("Erro ao salvar no banco", { description: res.error });
+      setSaveError(res.error ?? ERRO_ENVIO_GENERICO);
+      toast.error(ERRO_ENVIO_GENERICO);
     }
   }
 
@@ -325,7 +325,7 @@ function Index() {
                  role="status"
                  className="mt-5 rounded-xl border-2 border-primary bg-primary p-5 text-left text-base font-bold text-primary-foreground"
                >
-                 Respostas salvas com sucesso na tabela participantes para {email}.
+                 Respostas registradas com sucesso! Em breve você receberá o resultado no seu e-mail.
                </div>
              )}
 
@@ -335,7 +335,7 @@ function Index() {
                  role="alert"
                  className="mt-5 border-2 border-destructive bg-destructive p-5 text-left text-base font-bold text-destructive-foreground"
                >
-                 {saveError ?? "Erro desconhecido"}
+                 {saveError ?? ERRO_ENVIO_GENERICO}
                </div>
              )}
 
