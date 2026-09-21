@@ -11,7 +11,7 @@ import {
   calcularResultado,
   type AreaKey,
 } from "@/lib/vocational";
-import { saveSubmission } from "@/lib/submissions";
+import { ERRO_ENVIO_GENERICO, saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
 import feiraLogoAsset from "@/assets/feira-de-profissoes-logo-sem-brilho.png.asset.json";
 
