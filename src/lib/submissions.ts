@@ -44,10 +44,13 @@ export async function saveSubmission(
   const resultadoCompleto = buildResultadoText(input.result);
 
   try {
+    // Token anti-bot obtido no navegador e validado no servidor.
+    const turnstileToken = await getTurnstileToken();
     return await submitParticipante({
       data: {
         email: input.email,
         resultado: resultadoCompleto,
+        turnstileToken,
         pontuacao_a: Number(pontos.a),
         pontuacao_b: Number(pontos.b),
         pontuacao_c: Number(pontos.c),
