@@ -1,4 +1,5 @@
 import { submitParticipante } from "@/lib/submissions.functions";
+import { getTurnstileToken } from "@/lib/turnstile";
 import { buildResultadoText, type AreaKey } from "./vocational";
 
 /**
