@@ -189,11 +189,11 @@ function Index() {
       )}
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-md flex-col px-5 pb-10 pt-7">
         <header className="mb-8">
-          <div className="mb-6 flex justify-end">
+          <div className="mb-6 flex justify-center">
             <img
               src={feiraLogoAsset.url}
               alt="Feira de Profissões"
-              className="h-auto w-full max-w-[9rem] object-contain object-right"
+              className="h-auto w-full max-w-[9rem] object-contain"
             />
           </div>
           <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
