@@ -270,7 +270,7 @@
     /* metade da coluna central + folga mínima até o conteúdo */
     --hc-edge: calc(50% - 12.75rem - clamp(1.5rem, 3vw, 3rem));
     --hc-w: min(clamp(18rem, 26vw, 30rem), 40vh);
-    --hc-w-right: min(clamp(18rem, 26vw, 30rem), 36vh);
+    --hc-w-right: min(clamp(18rem, 26vw, 30rem), 31vh);
   }
 
   .honeycomb-corner {
