@@ -216,12 +216,16 @@
     width: 10rem;
   }
 
-  .honeycomb-corner-bottom-right {
-    right: -6rem;
-  }
-
+  /* Em janelas de pouca altura os dois grupos da direita mantêm tetos em vh,
+     cada um com o seu, para que sempre exista espaço entre magenta e roxo */
   .honeycomb-corner-top-right {
     right: -4.5rem;
+    width: min(10rem, 30vh);
+  }
+
+  .honeycomb-corner-bottom-right {
+    right: -6rem;
+    width: min(10rem, 32vh);
   }
 }
 
