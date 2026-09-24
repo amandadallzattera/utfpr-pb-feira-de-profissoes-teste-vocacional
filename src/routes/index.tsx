@@ -83,40 +83,6 @@ const formSchema = z.object({
 
 type Step = "form" | "quiz" | "result";
 
-function createHoneycombCells(count: number, columns: number) {
-  return Array.from({ length: count }, (_, index) => ({
-  x: (index % columns) * 52 + (Math.floor(index / columns) % 2 === 0 ? 0 : 26),
-  y: Math.floor(index / columns) * 45,
-  }));
-}
-
-function HoneycombCorner({
-  className,
-  count,
-  columns,
-}: {
-  className: string;
-  count: number;
-  columns: number;
-}) {
-  const cells = createHoneycombCells(count, columns);
-  const rows = Math.ceil(count / columns);
-
-  return (
-    <svg
-      className={`honeycomb-corner ${className}`}
-      viewBox={`0 0 ${columns * 52 + 26} ${rows * 45 + 12}`}
-    >
-      {cells.map(({ x, y }) => (
-        <path
-          key={`${x}-${y}`}
-          d={`M${x + 26} ${y + 2} ${x + 50} ${y + 15}v27L${x + 26} ${y + 55} ${x + 2} ${y + 42}V${y + 15}Z`}
-        />
-      ))}
-    </svg>
-  );
-}
-
 function Index() {
   const [step, setStep] = useState<Step>("form");
   const [email, setEmail] = useState("");
@@ -193,10 +159,6 @@ function Index() {
       <div className="honeycomb-frame" aria-hidden="true">
         <div className="honeycomb-continuation honeycomb-continuation-left" />
         <div className="honeycomb-continuation honeycomb-continuation-right" />
-        <HoneycombCorner className="honeycomb-corner-top-left honeycomb-purple" count={18} columns={4} />
-        <HoneycombCorner className="honeycomb-corner-top-right honeycomb-magenta" count={30} columns={4} />
-        <HoneycombCorner className="honeycomb-corner-bottom-left honeycomb-yellow" count={22} columns={4} />
-        <HoneycombCorner className="honeycomb-corner-bottom-right honeycomb-purple" count={26} columns={4} />
       </div>
       {step === "quiz" && (
         <div className="sticky top-0 z-20 border-b border-border/60 bg-background/90 backdrop-blur">

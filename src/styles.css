@@ -116,186 +116,45 @@
 .honeycomb-continuation {
   position: absolute;
   inset-block: 0;
-  width: max(3rem, calc((100vw - 28rem) / 2 - 0.75rem));
-  opacity: 0.18;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='180' viewBox='0 0 104 180'%3E%3Cpath d='M26 2 50 15v27L26 55 2 42V15ZM78 47l24 13v27l-24 13-24-13V60ZM26 92l24 13v27l-24 13-24-13v-27ZM78 137l24 13v27l-24 13-24-13v-27Z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='180' viewBox='0 0 104 180'%3E%3Cpath d='M26 2 50 15v27L26 55 2 42V15ZM78 47l24 13v27l-24 13-24-13V60ZM26 92l24 13v27l-24 13-24-13v-27ZM78 137l24 13v27l-24 13-24-13v-27Z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+  width: min(25rem, max(7rem, calc(50vw - 15.25rem)));
+  opacity: 0.24;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='90' viewBox='0 0 104 90'%3E%3Cpath d='M26 1 51 15.5v29L26 59 1 44.5v-29ZM78 46l25 14.5v29L78 104 53 89.5v-29Z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='90' viewBox='0 0 104 90'%3E%3Cpath d='M26 1 51 15.5v29L26 59 1 44.5v-29ZM78 46l25 14.5v29L78 104 53 89.5v-29Z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  -webkit-mask-size: 6.5rem 11.25rem;
-  mask-size: 6.5rem 11.25rem;
+  -webkit-mask-size: 6.5rem 5.625rem;
+  mask-size: 6.5rem 5.625rem;
 }
 
 .honeycomb-continuation-left {
   left: 0;
-  background: linear-gradient(
-    to bottom,
-    var(--honey-purple) 0 43%,
-    transparent 43% 57%,
-    var(--honey-yellow) 57% 100%
-  );
+  color: var(--honey-purple);
   -webkit-mask-position: left top;
   mask-position: left top;
 }
 
 .honeycomb-continuation-right {
   right: 0;
-  background: linear-gradient(
-    to bottom,
-    var(--honey-magenta) 0 43%,
-    transparent 43% 57%,
-    var(--honey-purple) 57% 100%
-  );
-  -webkit-mask-position: right 3rem;
-  mask-position: right 3rem;
-}
-
-.honeycomb-corner {
-  position: absolute;
-  width: 14rem;
-  height: auto;
-  overflow: visible;
-  opacity: 0.22;
-}
-
-.honeycomb-corner path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  vector-effect: non-scaling-stroke;
-}
-
-.honeycomb-purple {
-  color: var(--honey-purple);
-}
-
-.honeycomb-magenta {
   color: var(--honey-magenta);
-}
-
-.honeycomb-yellow {
-  color: var(--honey-yellow);
-}
-
-.honeycomb-corner-top-left {
-  top: -2.5rem;
-  left: -3.5rem;
-}
-
-.honeycomb-corner-top-right {
-  top: -2.5rem;
-  right: -3.5rem;
-  transform: scaleX(-1);
-  /* Teto em vh: em janelas baixas o grupo encolhe para nunca encostar no grupo roxo */
-  width: min(14rem, 31vh);
-}
-
-.honeycomb-corner-bottom-left {
-  bottom: -2.5rem;
-  left: -3.5rem;
-  transform: rotate(-90deg);
-}
-
-.honeycomb-corner-bottom-right {
-  right: -8.5rem;
-  bottom: -2.5rem;
-  transform: rotate(180deg);
-  /* Teto em vh independente do grupo magenta: garante espaço entre os dois */
-  width: min(14rem, 32vh);
+  -webkit-mask-position: right 2.8125rem;
+  mask-position: right 2.8125rem;
 }
 
 @media (max-width: 47.999rem) {
   .honeycomb-continuation {
-    width: 3rem;
-    opacity: 0.1;
-    -webkit-mask-size: 5rem 8.65rem;
-    mask-size: 5rem 8.65rem;
-  }
-
-  .honeycomb-corner-top-left,
-  .honeycomb-corner-bottom-left {
-    left: -13rem;
-  }
-
-  .honeycomb-corner-top-right {
-    right: -13rem;
-  }
-
-  .honeycomb-corner-bottom-right {
-    right: -13.5rem;
+    width: clamp(1.25rem, 7vw, 2.5rem);
+    opacity: 0.13;
+    -webkit-mask-size: 4rem 3.4615rem;
+    mask-size: 4rem 3.4615rem;
   }
 }
 
-@media (max-width: 47.999rem) and (max-height: 52rem) {
-  .honeycomb-corner {
-    width: 11rem;
-  }
-
-  .honeycomb-corner-top-right {
-    right: -10rem;
-    width: min(11rem, 30vh);
-  }
-
-  .honeycomb-corner-bottom-right {
-    right: -8rem;
-    width: min(11rem, 30vh);
-  }
-}
-
-
-@media (min-width: 48rem) {
-  .honeycomb-frame {
-    /* Borda do conteúdo central (coluna de 28rem) com folga mínima:
-       as colmeias "abraçam" as laterais do conteúdo em qualquer largura */
-    --hc-edge: calc(50% - 14rem + 0.25rem - clamp(0.25rem, 0.8vw, 1rem));
-    --hc-w-side: min(clamp(15rem, 26vw, 24rem), 42vh);
-    --hc-w-tr: min(clamp(15rem, 26vw, 24rem), 33vh);
-    --hc-w-br: min(clamp(15rem, 26vw, 24rem), 32vh);
-  }
-
-  .honeycomb-corner {
-    opacity: 0.25;
-    width: var(--hc-w-side);
-  }
-
-  .honeycomb-corner-top-left,
-  .honeycomb-corner-bottom-left {
-    left: auto;
-    right: calc(50% + 14rem + clamp(0.25rem, 0.8vw, 1rem));
-  }
-
-  .honeycomb-corner-top-right {
-    top: -2.5rem;
-    right: calc(var(--hc-edge) - var(--hc-w-tr));
-    width: var(--hc-w-tr);
-  }
-
-  .honeycomb-corner-bottom-right {
-    right: calc(var(--hc-edge) - var(--hc-w-br));
-    bottom: -2.5rem;
-    width: var(--hc-w-br);
-  }
-}
-
-@media (min-width: 64rem) {
-  .honeycomb-frame {
-    /* Telas maiores: colmeias maiores, preenchendo melhor as laterais.
-       Os tetos em vh mantêm um espaço vazio claro entre magenta e roxa. */
-    --hc-w-side: min(clamp(20rem, 28vw, 32rem), 44vh);
-    --hc-w-tr: min(clamp(20rem, 28vw, 32rem), 33vh);
-    --hc-w-br: min(clamp(20rem, 28vw, 32rem), 32vh);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .honeycomb-corner {
-    animation: honeycomb-drift 14s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes honeycomb-drift {
-  to {
-    translate: 0 0.65rem;
+@media (min-width: 48rem) and (max-width: 63.999rem) {
+  .honeycomb-continuation {
+    opacity: 0.2;
+    -webkit-mask-size: 5.5rem 4.7596rem;
+    mask-size: 5.5rem 4.7596rem;
   }
 }
 
