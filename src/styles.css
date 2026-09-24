@@ -217,7 +217,7 @@
   .honeycomb-corner-top-left,
   .honeycomb-corner-bottom-left {
     left: auto;
-    right: var(--hc-edge);
+    right: calc(50% + 14rem + clamp(0.25rem, 0.8vw, 1rem));
   }
 
   .honeycomb-corner-top-right {
@@ -237,7 +237,7 @@
   .honeycomb-frame {
     /* Telas maiores: colmeias maiores, preenchendo melhor as laterais.
        Os tetos em vh mantêm um espaço vazio claro entre magenta e roxa. */
-    --hc-w-side: min(clamp(20rem, 28vw, 32rem), 42vh);
+    --hc-w-side: min(clamp(20rem, 28vw, 32rem), 44vh);
     --hc-w-tr: min(clamp(20rem, 28vw, 32rem), 33vh);
     --hc-w-br: min(clamp(20rem, 28vw, 32rem), 32vh);
   }
