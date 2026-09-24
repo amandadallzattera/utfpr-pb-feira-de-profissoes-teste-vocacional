@@ -244,6 +244,27 @@
   }
 }
 
+@media (min-width: 48rem) and (max-width: 63.999rem) {
+  .honeycomb-corner,
+  .honeycomb-corner-top-right,
+  .honeycomb-corner-bottom-right {
+    width: min(15rem, 30vh);
+  }
+
+  .honeycomb-corner-top-left,
+  .honeycomb-corner-bottom-left {
+    left: -5rem;
+  }
+
+  .honeycomb-corner-top-right {
+    right: -5rem;
+  }
+
+  .honeycomb-corner-bottom-right {
+    right: -7rem;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .honeycomb-corner {
     animation: honeycomb-drift 14s ease-in-out infinite alternate;
