@@ -265,6 +265,30 @@
   }
 }
 
+@media (min-width: 64rem) {
+  .honeycomb-frame {
+    /* metade da coluna central + folga mínima até o conteúdo */
+    --hc-edge: calc(50% - 12.75rem - clamp(1.5rem, 3vw, 3rem));
+    --hc-w: min(clamp(18rem, 26vw, 30rem), 40vh);
+    --hc-w-right: min(clamp(18rem, 26vw, 30rem), 36vh);
+  }
+
+  .honeycomb-corner {
+    width: var(--hc-w);
+  }
+
+  .honeycomb-corner-top-left,
+  .honeycomb-corner-bottom-left {
+    left: calc(var(--hc-edge) - var(--hc-w));
+  }
+
+  .honeycomb-corner-top-right,
+  .honeycomb-corner-bottom-right {
+    width: var(--hc-w-right);
+    right: calc(var(--hc-edge) - var(--hc-w-right));
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .honeycomb-corner {
     animation: honeycomb-drift 14s ease-in-out infinite alternate;
