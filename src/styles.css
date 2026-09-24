@@ -146,7 +146,7 @@
 }
 
 .honeycomb-corner-top-right {
-  top: -2.5rem;
+  top: 0.75rem;
   right: -3.5rem;
   transform: rotate(90deg);
 }
@@ -175,7 +175,7 @@
   }
 
   .honeycomb-corner-top-right {
-    top: -3rem;
+    top: 1.5rem;
     right: -4.5rem;
   }
 
