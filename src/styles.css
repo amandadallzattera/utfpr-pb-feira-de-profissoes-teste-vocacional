@@ -220,6 +220,16 @@
   }
 }
 
+@media (max-width: 47.999rem) and (max-height: 52rem) {
+  .honeycomb-corner-top-right {
+    right: -12rem;
+  }
+
+  .honeycomb-corner-bottom-right {
+    right: -9.5rem;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .honeycomb-corner {
     animation: honeycomb-drift 14s ease-in-out infinite alternate;
