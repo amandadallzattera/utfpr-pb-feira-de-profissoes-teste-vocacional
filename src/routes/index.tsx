@@ -376,15 +376,15 @@ function Index() {
         <footer className="mt-auto pt-10 text-center text-[11px] text-muted-foreground">
           <ul
             aria-label="Patrocinadores"
-            className="mx-auto mb-8 grid w-full max-w-md grid-cols-2 items-center justify-items-center gap-x-6 gap-y-6 sm:grid-cols-3"
+            className="relative left-1/2 mb-8 grid w-screen -translate-x-1/2 grid-cols-2 items-center justify-items-center gap-x-4 gap-y-6 px-4 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-12 lg:gap-x-4"
           >
             {SPONSORS.map((s) => (
-              <li key={s.alt} className="flex h-12 w-full min-w-0 items-center justify-center sm:h-14">
+              <li key={s.alt} className="flex h-12 w-full min-w-0 items-center justify-center sm:h-14 lg:h-10">
                 <img
                   src={s.src}
                   alt={s.alt}
                   loading="lazy"
-                  className="h-auto max-h-full w-auto max-w-[85%] object-contain opacity-90"
+                  className="h-auto max-h-full w-auto max-w-full object-contain opacity-90"
                 />
               </li>
             ))}
