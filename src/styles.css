@@ -190,15 +190,15 @@
   }
 }
 
-@media (max-height: 42rem) {
+@media (max-height: 52rem) {
   .honeycomb-corner-top-right,
   .honeycomb-corner-bottom-right {
-    width: 11rem;
-    right: -7rem;
+    width: 10rem;
+    right: -6rem;
   }
 
   .honeycomb-corner-top-right {
-    top: clamp(3.5rem, 14dvh, 5.5rem);
+    top: clamp(3.5rem, 12dvh, 5.5rem);
   }
 }
 
