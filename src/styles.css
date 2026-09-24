@@ -163,6 +163,21 @@
   transform: rotate(180deg);
 }
 
+@media (max-width: 47.999rem) {
+  .honeycomb-corner-top-left,
+  .honeycomb-corner-bottom-left {
+    left: -13rem;
+  }
+
+  .honeycomb-corner-top-right {
+    right: -17rem;
+  }
+
+  .honeycomb-corner-bottom-right {
+    right: -13.5rem;
+  }
+}
+
 @media (min-width: 48rem) {
   .honeycomb-corner {
     opacity: 0.25;
@@ -191,9 +206,12 @@
 }
 
 @media (max-height: 52rem) {
+  .honeycomb-corner {
+    width: 10rem;
+  }
+
   .honeycomb-corner-top-right,
   .honeycomb-corner-bottom-right {
-    width: 10rem;
     right: -6rem;
   }
 
