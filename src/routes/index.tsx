@@ -191,6 +191,8 @@ function Index() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-background text-foreground">
       <div className="honeycomb-frame" aria-hidden="true">
+        <div className="honeycomb-continuation honeycomb-continuation-left" />
+        <div className="honeycomb-continuation honeycomb-continuation-right" />
         <HoneycombCorner className="honeycomb-corner-top-left honeycomb-purple" count={18} columns={4} />
         <HoneycombCorner className="honeycomb-corner-top-right honeycomb-magenta" count={30} columns={4} />
         <HoneycombCorner className="honeycomb-corner-bottom-left honeycomb-yellow" count={22} columns={4} />
