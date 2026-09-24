@@ -196,6 +196,7 @@
   .honeycomb-corner-top-right {
     top: -3rem;
     right: -4.5rem;
+    width: min(20rem, 31vh);
   }
 
   .honeycomb-corner-bottom-left {
@@ -206,6 +207,7 @@
   .honeycomb-corner-bottom-right {
     right: -8rem;
     bottom: -3rem;
+    width: min(20rem, 32vh);
   }
 }
 
