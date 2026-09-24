@@ -182,6 +182,23 @@
   }
 }
 
+@media (max-width: 47.999rem) and (max-height: 52rem) {
+  .honeycomb-corner {
+    width: 11rem;
+  }
+
+  .honeycomb-corner-top-right {
+    right: -10rem;
+    width: min(11rem, 30vh);
+  }
+
+  .honeycomb-corner-bottom-right {
+    right: -8rem;
+    width: min(11rem, 30vh);
+  }
+}
+
+
 @media (min-width: 48rem) {
   .honeycomb-frame {
     /* Borda do conteúdo central (coluna de 28rem) com folga mínima:
