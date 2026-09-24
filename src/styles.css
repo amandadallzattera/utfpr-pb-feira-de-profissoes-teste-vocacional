@@ -183,109 +183,46 @@
 }
 
 @media (min-width: 48rem) {
+  .honeycomb-frame {
+    /* Borda do conteúdo central (coluna de 28rem) com folga mínima:
+       as colmeias "abraçam" as laterais do conteúdo em qualquer largura */
+    --hc-edge: calc(50% - 14rem + 0.25rem - clamp(0.25rem, 0.8vw, 1rem));
+    --hc-w-side: min(clamp(15rem, 26vw, 24rem), 42vh);
+    --hc-w-tr: min(clamp(15rem, 26vw, 24rem), 33vh);
+    --hc-w-br: min(clamp(15rem, 26vw, 24rem), 32vh);
+  }
+
   .honeycomb-corner {
     opacity: 0.25;
-    width: clamp(20rem, 26vw, 28rem);
-  }
-
-  .honeycomb-corner-top-left {
-    top: -2.5rem;
-    left: -3rem;
-  }
-
-  .honeycomb-corner-top-right {
-    top: -2.5rem;
-    right: -3rem;
-    /* Teto em vh: garante espaço vazio visível até o grupo roxo */
-    width: min(clamp(20rem, 26vw, 28rem), 34vh);
-  }
-
-  .honeycomb-corner-bottom-left {
-    bottom: -2.5rem;
-    left: -3rem;
-  }
-
-  .honeycomb-corner-bottom-right {
-    right: -6rem;
-    bottom: -2.5rem;
-    width: min(clamp(20rem, 26vw, 28rem), 34vh);
-  }
-}
-
-@media (min-width: 48rem) and (max-height: 52rem) {
-  .honeycomb-corner {
-    width: min(clamp(16rem, 22vw, 22rem), 40vh);
-  }
-
-  .honeycomb-corner-top-right {
-    right: -3rem;
-    width: min(clamp(16rem, 22vw, 22rem), 32vh);
-  }
-
-  .honeycomb-corner-bottom-right {
-    right: -5rem;
-    width: min(clamp(16rem, 22vw, 22rem), 32vh);
-  }
-}
-
-@media (max-width: 47.999rem) and (max-height: 52rem) {
-  .honeycomb-corner {
-    width: 11rem;
-  }
-
-  .honeycomb-corner-top-right {
-    right: -10rem;
-    width: min(11rem, 30vh);
-  }
-
-  .honeycomb-corner-bottom-right {
-    right: -8rem;
-    width: min(11rem, 30vh);
-  }
-}
-
-@media (min-width: 48rem) and (max-width: 63.999rem) {
-  .honeycomb-corner,
-  .honeycomb-corner-top-right,
-  .honeycomb-corner-bottom-right {
-    width: min(15rem, 30vh);
+    width: var(--hc-w-side);
   }
 
   .honeycomb-corner-top-left,
   .honeycomb-corner-bottom-left {
-    left: -5rem;
+    left: auto;
+    right: var(--hc-edge);
   }
 
   .honeycomb-corner-top-right {
-    right: -5rem;
+    top: -2.5rem;
+    right: calc(var(--hc-edge) - var(--hc-w-tr));
+    width: var(--hc-w-tr);
   }
 
   .honeycomb-corner-bottom-right {
-    right: -7rem;
+    right: calc(var(--hc-edge) - var(--hc-w-br));
+    bottom: -2.5rem;
+    width: var(--hc-w-br);
   }
 }
 
 @media (min-width: 64rem) {
   .honeycomb-frame {
-    /* metade da coluna central + folga mínima até o conteúdo */
-    --hc-edge: calc(50% - 12.75rem - clamp(0.5rem, 1.2vw, 1.25rem));
-    --hc-w: min(clamp(18rem, 26vw, 30rem), 40vh);
-    --hc-w-right: min(clamp(18rem, 26vw, 30rem), 31vh);
-  }
-
-  .honeycomb-corner {
-    width: var(--hc-w);
-  }
-
-  .honeycomb-corner-top-left,
-  .honeycomb-corner-bottom-left {
-    left: calc(var(--hc-edge) - var(--hc-w));
-  }
-
-  .honeycomb-corner-top-right,
-  .honeycomb-corner-bottom-right {
-    width: var(--hc-w-right);
-    right: calc(var(--hc-edge) - var(--hc-w-right));
+    /* Telas maiores: colmeias maiores, preenchendo melhor as laterais.
+       Os tetos em vh mantêm um espaço vazio claro entre magenta e roxa. */
+    --hc-w-side: min(clamp(20rem, 28vw, 32rem), 42vh);
+    --hc-w-tr: min(clamp(20rem, 28vw, 32rem), 33vh);
+    --hc-w-br: min(clamp(20rem, 28vw, 32rem), 32vh);
   }
 }
 
