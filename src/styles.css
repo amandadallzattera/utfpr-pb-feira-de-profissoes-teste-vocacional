@@ -146,9 +146,9 @@
 }
 
 .honeycomb-corner-top-right {
-  top: clamp(4rem, 12dvh, 7rem);
-  right: -8.5rem;
-  transform: rotate(90deg);
+  top: -2.5rem;
+  right: -3.5rem;
+  transform: scaleX(-1);
 }
 
 .honeycomb-corner-bottom-left {
@@ -170,7 +170,7 @@
   }
 
   .honeycomb-corner-top-right {
-    right: -17rem;
+    right: -13rem;
   }
 
   .honeycomb-corner-bottom-right {
@@ -190,8 +190,8 @@
   }
 
   .honeycomb-corner-top-right {
-    top: clamp(5rem, 12dvh, 9rem);
-    right: -8rem;
+    top: -3rem;
+    right: -4.5rem;
   }
 
   .honeycomb-corner-bottom-left {
@@ -210,19 +210,18 @@
     width: 10rem;
   }
 
-  .honeycomb-corner-top-right,
   .honeycomb-corner-bottom-right {
     right: -6rem;
   }
 
   .honeycomb-corner-top-right {
-    top: clamp(3.5rem, 12dvh, 5.5rem);
+    right: -4.5rem;
   }
 }
 
 @media (max-width: 47.999rem) and (max-height: 52rem) {
   .honeycomb-corner-top-right {
-    right: -12rem;
+    right: -13rem;
   }
 
   .honeycomb-corner-bottom-right {
