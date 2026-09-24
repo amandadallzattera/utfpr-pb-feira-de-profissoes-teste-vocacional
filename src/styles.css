@@ -185,57 +185,62 @@
 @media (min-width: 48rem) {
   .honeycomb-corner {
     opacity: 0.25;
-    width: 20rem;
+    width: clamp(20rem, 26vw, 28rem);
   }
 
   .honeycomb-corner-top-left {
-    top: -3rem;
-    left: -4.5rem;
+    top: -2.5rem;
+    left: -3rem;
   }
 
   .honeycomb-corner-top-right {
-    top: -3rem;
-    right: -4.5rem;
-    width: min(20rem, 31vh);
+    top: -2.5rem;
+    right: -3rem;
+    /* Teto em vh: garante espaço vazio visível até o grupo roxo */
+    width: min(clamp(20rem, 26vw, 28rem), 34vh);
   }
 
   .honeycomb-corner-bottom-left {
-    bottom: -3rem;
-    left: -4.5rem;
-  }
-
-  .honeycomb-corner-bottom-right {
-    right: -8rem;
-    bottom: -3rem;
-    width: min(20rem, 32vh);
-  }
-}
-
-@media (max-height: 52rem) {
-  .honeycomb-corner {
-    width: 10rem;
-  }
-
-  /* Em janelas de pouca altura os dois grupos da direita mantêm tetos em vh,
-     cada um com o seu, para que sempre exista espaço entre magenta e roxo */
-  .honeycomb-corner-top-right {
-    right: -4.5rem;
-    width: min(10rem, 30vh);
+    bottom: -2.5rem;
+    left: -3rem;
   }
 
   .honeycomb-corner-bottom-right {
     right: -6rem;
-    width: min(10rem, 32vh);
+    bottom: -2.5rem;
+    width: min(clamp(20rem, 26vw, 28rem), 34vh);
+  }
+}
+
+@media (min-width: 48rem) and (max-height: 52rem) {
+  .honeycomb-corner {
+    width: min(clamp(16rem, 22vw, 22rem), 40vh);
+  }
+
+  .honeycomb-corner-top-right {
+    right: -3rem;
+    width: min(clamp(16rem, 22vw, 22rem), 32vh);
+  }
+
+  .honeycomb-corner-bottom-right {
+    right: -5rem;
+    width: min(clamp(16rem, 22vw, 22rem), 32vh);
   }
 }
 
 @media (max-width: 47.999rem) and (max-height: 52rem) {
+  .honeycomb-corner {
+    width: 11rem;
+  }
+
   .honeycomb-corner-top-right {
-    right: -13rem;
+    right: -10rem;
+    width: min(11rem, 30vh);
   }
 
   .honeycomb-corner-bottom-right {
-    right: -9.5rem;
+    right: -8rem;
+    width: min(11rem, 30vh);
   }
 }
 
