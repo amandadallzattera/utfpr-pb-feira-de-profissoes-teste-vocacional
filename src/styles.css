@@ -149,6 +149,8 @@
   top: -2.5rem;
   right: -3.5rem;
   transform: scaleX(-1);
+  /* Teto em vh: em janelas baixas o grupo encolhe para nunca encostar no grupo roxo */
+  width: min(14rem, 31vh);
 }
 
 .honeycomb-corner-bottom-left {
@@ -161,6 +163,8 @@
   right: -8.5rem;
   bottom: -2.5rem;
   transform: rotate(180deg);
+  /* Teto em vh independente do grupo magenta: garante espaço entre os dois */
+  width: min(14rem, 32vh);
 }
 
 @media (max-width: 47.999rem) {
