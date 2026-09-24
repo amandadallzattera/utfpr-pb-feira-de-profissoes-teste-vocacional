@@ -14,6 +14,33 @@ import {
 import { ERRO_ENVIO_GENERICO, saveSubmission } from "@/lib/submissions";
 import { toast } from "sonner";
 import feiraLogoAsset from "@/assets/feira-de-profissoes-logo-sem-brilho.png.asset.json";
+import sp0 from "@/assets/sponsors/gregos.png.asset.json";
+import sp1 from "@/assets/sponsors/my-formaturas.png.asset.json";
+import sp2 from "@/assets/sponsors/viasoft.png.asset.json";
+import sp3 from "@/assets/sponsors/tradicao.png.asset.json";
+import sp4 from "@/assets/sponsors/aiqfome.png.asset.json";
+import sp5 from "@/assets/sponsors/biexplorer.png.asset.json";
+import sp6 from "@/assets/sponsors/biocenter.png.asset.json";
+import sp7 from "@/assets/sponsors/federal-club.png.asset.json";
+import sp8 from "@/assets/sponsors/iel.png.asset.json";
+import sp9 from "@/assets/sponsors/citromax.png.asset.json";
+import sp10 from "@/assets/sponsors/casa-do-mdf.png.asset.json";
+import sp11 from "@/assets/sponsors/fp-info.png.asset.json";
+
+const SPONSORS = [
+  { src: sp0.url, alt: "Gregos Artesanal" },
+  { src: sp1.url, alt: "My Formaturas" },
+  { src: sp2.url, alt: "Viasoft" },
+  { src: sp3.url, alt: "Tradição Cooperativa Agroindustrial" },
+  { src: sp4.url, alt: "aiqfome" },
+  { src: sp5.url, alt: "biexplorer" },
+  { src: sp6.url, alt: "Laboratório Biocenter" },
+  { src: sp7.url, alt: "Federal Club" },
+  { src: sp8.url, alt: "Sistema Fiep IEL" },
+  { src: sp9.url, alt: "Citromax" },
+  { src: sp10.url, alt: "Casa do MDF" },
+  { src: sp11.url, alt: "FP Info" },
+];
 
 const TITLE = "Teste Vocacional — Feira de Profissões UTFPR";
 const DESCRIPTION =
@@ -347,6 +374,21 @@ function Index() {
         )}
 
         <footer className="mt-auto pt-10 text-center text-[11px] text-muted-foreground">
+          <ul
+            aria-label="Patrocinadores"
+            className="mx-auto mb-8 grid w-full max-w-md grid-cols-2 items-center justify-items-center gap-x-6 gap-y-6 sm:grid-cols-3"
+          >
+            {SPONSORS.map((s) => (
+              <li key={s.alt} className="flex h-12 w-full min-w-0 items-center justify-center sm:h-14">
+                <img
+                  src={s.src}
+                  alt={s.alt}
+                  loading="lazy"
+                  className="h-auto max-h-full w-auto max-w-[85%] object-contain opacity-90"
+                />
+              </li>
+            ))}
+          </ul>
           <p>Feira de Profissões UTFPR · Dados tratados conforme a LGPD</p>
           <p className="mt-1">
             Teste vocacional desenvolvido pela pedagoga Maria da Luz Calegari
