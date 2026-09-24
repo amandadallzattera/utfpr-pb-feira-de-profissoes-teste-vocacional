@@ -149,6 +149,8 @@
   top: -2.5rem;
   right: -3.5rem;
   transform: scaleX(-1);
+  /* Teto em vh: em janelas baixas o grupo encolhe para nunca encostar no grupo roxo */
+  width: min(14rem, 31vh);
 }
 
 .honeycomb-corner-bottom-left {
@@ -161,6 +163,8 @@
   right: -8.5rem;
   bottom: -2.5rem;
   transform: rotate(180deg);
+  /* Teto em vh independente do grupo magenta: garante espaço entre os dois */
+  width: min(14rem, 32vh);
 }
 
 @media (max-width: 47.999rem) {
@@ -192,6 +196,7 @@
   .honeycomb-corner-top-right {
     top: -3rem;
     right: -4.5rem;
+    width: min(20rem, 31vh);
   }
 
   .honeycomb-corner-bottom-left {
@@ -202,6 +207,7 @@
   .honeycomb-corner-bottom-right {
     right: -8rem;
     bottom: -3rem;
+    width: min(20rem, 32vh);
   }
 }
 
@@ -210,12 +216,16 @@
     width: 10rem;
   }
 
-  .honeycomb-corner-bottom-right {
-    right: -6rem;
-  }
-
+  /* Em janelas de pouca altura os dois grupos da direita mantêm tetos em vh,
+     cada um com o seu, para que sempre exista espaço entre magenta e roxo */
   .honeycomb-corner-top-right {
     right: -4.5rem;
+    width: min(10rem, 30vh);
+  }
+
+  .honeycomb-corner-bottom-right {
+    right: -6rem;
+    width: min(10rem, 32vh);
   }
 }
 
